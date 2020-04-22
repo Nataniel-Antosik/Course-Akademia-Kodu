@@ -2,6 +2,8 @@ import calendar as c #importujemy kalendarz
 import random as r
 import requests as re
 from bs4 import BeautifulSoup as BF
+import pylab
+from PyQt5.QtWidgets import QApplication, QWidget
 
 # -*- coding: utf-8 -*-
 """
@@ -175,9 +177,42 @@ element = soup.find('span',class_="results-header__offer-count-text-number") #ch
 print('Liczba ofert pracy w Pythonie to ', element.text) #text musi być bo by pokazło kod z html
 
 #zadanie 21
- 
+page = re.get('http://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=99a24a78addf4a2c41947189fcff67f7&&lang=p&format=jsonl')
+json = page.json()
+temp = json['main']['temp']
+print(temp)
   
 #zadanie 22
+a = 1
+b = 2
+x = range(-10, 11) # lista argumentów x
+y = [] # lista wartości
+for i in x:
+    y.append(a * i + b)
+pylab.plot(x, y)
+pylab.title('Wykres f(x) = a*x - b')
+pylab.grid(True)
+pylab.show()
+
 #zadanie 23
+password = input('Podaj hasło\n')
+secrect_password = 'Akademia'
+while password!=secrect_password:
+    password = input('Niepoprawne hasło podaj jeszcze raz\n')
+print('Gratulacje podałeś hasło')
+
 #zadanie 24
+class Kalkulator(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.interfejs()
+    def interfejs(self):
+        self.resize(300, 100)
+        self.setWindowTitle("Prosty kalkulator")
+        self.show()
+if __name__ == '__main__':
+    import sys
+app = QApplication(sys.argv)
+okno = Kalkulator()
+sys.exit(app.exec_())
 #zadanie 25
