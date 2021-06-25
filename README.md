@@ -1,4 +1,4 @@
-# Kurs Akademia Kodu
+# Course 'Akademia Kodu'
 
 ## General info
 An online course conducted on 18.04.2020 by Michal Makaruk. The material covered the basics of Python range: 
